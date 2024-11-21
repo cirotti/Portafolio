@@ -1,18 +1,24 @@
-// Hero Section Animations
-gsap.from("#hero h2", {
-    duration: 1.5,
-    y: -50,  // Se mueve en el eje Y
-    opacity: 1,  // Mantiene la opacidad en 1
-    ease: "power2.out"
-});
-
-gsap.from("#hero p", {
-    duration: 1.5,
-    opacity: 0,  // Comienza invisible
-    y: 30,
-    delay: 0.3,
-    ease: "power3.out",
-});
+// Hero Section Animations (Corregido)
+gsap.fromTo(
+    "#hero h2",
+    { y: 50, opacity: 0 }, // Valores iniciales
+    { 
+      y: 0, opacity: 1, 
+      duration: 1.5, 
+      ease: "power2.out",
+    }
+  );
+  
+  gsap.fromTo(
+    "#hero p",
+    { y: 50, opacity: 0 }, // Valores iniciales
+    { 
+      y: 0, opacity: 1, 
+      delay: 0.3, 
+      duration: 1.5, 
+      ease: "power2.out",
+    }
+  );
 
 gsap.from("#hero button", {
     duration: 1.5,
@@ -104,6 +110,40 @@ document.querySelectorAll("#mobile-menu a").forEach((link) => {
     });
   });
 });
+
+// Logo Animation
+gsap.fromTo(
+    "#hero-logo",
+    { opacity: 0, y: -30 }, // Estado inicial
+    { 
+      opacity: 1, y: 0, 
+      duration: 1.5, 
+      ease: "power2.out",
+      delay: 0.2, // Aparece antes del h2
+    }
+  );
+  
+  // Flotar el logo constantemente
+  gsap.to("#hero-logo", {
+    y: -10,
+    repeat: -1,
+    yoyo: true,
+    duration: 2,
+    ease: "power1.inOut",
+  });
+  
+
+// Close menu when clicking on links
+document.querySelectorAll("#mobile-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      gsap.to(mobileMenu, {
+        opacity: 0,
+        x: 100,
+        duration: 0.5,
+        onComplete: () => mobileMenu.classList.add("hidden"),
+      });
+    });
+  });
 
 // Form Submission
 document.querySelector("form").addEventListener("submit", (e) => {
