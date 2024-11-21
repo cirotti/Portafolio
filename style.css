@@ -5,78 +5,100 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-  }
-  
-  /* Header */
-  header {
+}
+
+/* Header */
+header {
     background-color: #512da8;
     padding: 20px 0;
     text-align: center;
     box-shadow: none;
-  }
-  
-  /* Logo en el header */
-  header .logo {
+}
+
+/* Logo en el header */
+header .logo {
     font-size: 2rem;
     color: white;
     font-weight: bold;
-  }
-  
-  /* Hero Section */
-  #hero {
+}
+
+/* Hero Section */
+#hero {
     padding: 50px 20px;
     text-align: center;
-  }
-  
-  #hero h2 {
+}
+
+/* Logo PNG */
+.hero-logo {
+    width: 500px;  /* Ajusta este valor al tamaño deseado */
+    height: auto;  /* Mantiene la relación de aspecto */
+    margin-bottom: 20px; /* Espacio entre el logo y el título */
+    animation: logoMove 2s ease-in-out infinite;  /* Animación de movimiento */
+}
+
+/* Animación de movimiento del logo */
+@keyframes logoMove {
+    0% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+
+#hero h2 {
     font-size: 3.5rem;
     text-transform: uppercase;
     display: inline-block;
     overflow: hidden; /* Oculta elementos durante la animación */
-  }
-  
-  #hero h2 span {
+}
+
+#hero h2 span {
     display: inline-block;
     transform: translateY(100%);
     animation: titleSlide 3s ease-out forwards;  /* 'forwards' para mantener el estado final */
-  }
-  
-  /* Animación para mover letras */
-  @keyframes titleSlide {
+}
+
+/* Animación para mover letras */
+@keyframes titleSlide {
     0% {
-      transform: translateY(100%);
-      opacity: 0;
+        transform: translateY(100%);
+        opacity: 0;
     }
     20% {
-      transform: translateY(0);
-      opacity: 1;
+        transform: translateY(0);
+        opacity: 1;
     }
     80% {
-      transform: translateY(0);
-      opacity: 1;  /* Mantener visible */
+        transform: translateY(0);
+        opacity: 1;  /* Mantener visible */
     }
     100% {
-      transform: translateY(0);
-      opacity: 1;  /* Mantener visible */
+        transform: translateY(0);
+        opacity: 1;  /* Mantener visible */
     }
-  }
-  
-  /* Secciones */
-  section {
+}
+
+/* Secciones */
+section {
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px;
     margin: 20px auto;
-  }
-  
-  section h3 {
+}
+
+section h3 {
     font-size: 2rem;
     margin-bottom: 20px;
-  }
-  
-  /* Formulario */
-  form {
+}
+
+/* Formulario */
+form {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
@@ -84,23 +106,23 @@ body {
     margin: 20px auto;
     width: 90%;
     max-width: 600px;
-  }
-  
-  form input, form textarea {
+}
+
+form input, form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 10px;
     border: 1px solid #ddd;
     font-size: 1rem;
-  }
-  
-  form textarea {
+}
+
+form textarea {
     height: 150px;
     resize: vertical;
-  }
-  
-  button {
+}
+
+button {
     background-color: #2196f3;
     color: white;
     border: none;
@@ -108,31 +130,30 @@ body {
     padding: 10px 20px;
     transition: background-color 0.3s ease-in-out, transform 0.2s;
     font-size: 1rem;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #1976d2;
     transform: scale(1.05);
-  }
-  
-  /* Footer */
-  footer {
+}
+
+/* Footer */
+footer {
     background-color: #512da8;
     color: #ffffff;
     text-align: center;
     padding: 10px;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     #hero h2 {
-      font-size: 2.5rem;
+        font-size: 2.5rem;
     }
     nav {
-      flex-direction: column;
+        flex-direction: column;
     }
     form {
-      width: 100%;
+        width: 100%;
     }
-  }
-  
+}
