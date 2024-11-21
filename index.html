@@ -19,11 +19,11 @@
 
   <!-- Header -->
   <header class="py-6 px-6 md:px-10 flex justify-between items-center fixed top-0 w-full bg-purple-900 bg-opacity-90 z-50 shadow-lg">
-    <h1 class="text-3xl font-bold">Claudio Martínez</h1>
+    <h1 class="text-3xl font-bold hover:text-blue-300 transition-all duration-300">Claudio Martínez</h1>
     <nav class="hidden md:block space-x-6">
-      <a href="#about" class="text-lg hover:underline">Sobre mí</a>
-      <a href="#projects" class="text-lg hover:underline">Proyectos</a>
-      <a href="#contact" class="text-lg hover:underline">Contacto</a>
+      <a href="#about" class="text-lg hover:underline hover:text-blue-400">Sobre mí</a>
+      <a href="#projects" class="text-lg hover:underline hover:text-blue-400">Proyectos</a>
+      <a href="#contact" class="text-lg hover:underline hover:text-blue-400">Contacto</a>
     </nav>
     <button id="menu-toggle" class="md:hidden text-2xl">☰</button>
   </header>
@@ -37,16 +37,19 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center" style="background-image: url('https://i.postimg.cc/tJFMP4KW/wp10167109-full-stack-wallpapers.jpg');">
-    <h2 class="text-5xl font-extrabold leading-snug bg-black bg-opacity-50 px-4 py-2 rounded-md">
-      ¡Hola! Soy <span class="text-blue-400">Claudio Martínez</span>
-    </h2>
-    <p class="mt-4 text-lg max-w-lg bg-black bg-opacity-50 px-4 py-2 rounded-md">
-      Desarrollador web apasionado por crear <span class="underline">experiencias visuales</span> y <span class="underline">dinámicas</span> en la web.
-    </p>
-    <button class="mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-500 transition-all transform hover:scale-110">
-      Ver mi trabajo
-    </button>
+  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center relative overflow-hidden" style="background-image: url('https://i.postimg.cc/tJFMP4KW/wp10167109-full-stack-wallpapers.jpg');">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-70"></div>
+    <div class="relative z-10">
+      <h2 class="text-5xl font-extrabold leading-snug bg-black bg-opacity-50 px-4 py-2 rounded-md animate-fade-in">
+        ¡Hola! Soy <span class="text-blue-400">Claudio Martínez</span>
+      </h2>
+      <p class="mt-4 text-lg max-w-lg bg-black bg-opacity-50 px-4 py-2 rounded-md animate-slide-up">
+        Desarrollador web apasionado por crear <span class="underline">experiencias visuales</span> y <span class="underline">dinámicas</span> en la web.
+      </p>
+      <button class="mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-500 transition-all transform hover:scale-110 animate-bounce">
+        Ver mi trabajo
+      </button>
+    </div>
   </section>
 
   <!-- About Section -->
@@ -56,7 +59,7 @@
       <p class="text-lg">
         Soy un desarrollador web con experiencia en tecnologías modernas como React, Tailwind CSS y GSAP. Mi pasión es construir proyectos únicos y funcionales.
       </p>
-      <img src="https://via.placeholder.com/400" alt="Foto de Claudio" class="mx-auto mt-6 rounded-full shadow-lg w-40 h-40 object-cover">
+      <img src="https://i.postimg.cc/5t8Rr39L/Leonardo-Phoenix-Design-a-logo-that-embodies-a-programming-env-1.jpg" alt="Foto de Claudio" class="mx-auto mt-6 rounded-full shadow-lg w-40 h-40 object-cover">
     </div>
   </section>
 
@@ -71,7 +74,7 @@
           <h4 class="text-xl font-bold mt-4">Proyecto 1</h4>
           <p class="mt-2">Descripción breve del proyecto.</p>
         </div>
-        <!-- Repeat slides -->
+        <!-- Repite más slides -->
       </div>
       <!-- Pagination -->
       <div class="swiper-pagination"></div>
@@ -97,7 +100,7 @@
       </div>
       <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500">Enviar</button>
     </form>
-    <p class="mt-6 text-white">O contáctame directamente: <br> <a href="tel:+56945518384" class="underline">+569 4551 8384</a></p>
+    <p class="mt-6 text-white">O contáctame directamente: <br> <a href="tel:+56945518384" class="underline">dev.claumz@gmail.com</a></p>
   </section>
 
   <!-- Footer -->
