@@ -15,6 +15,26 @@ header {
     box-shadow: none;
 }
 
+/* Animación para mover el texto de "Claudio Martínez" */
+@keyframes moveText {
+    0% {
+        transform: translateX(-10px); /* Inicia ligeramente a la izquierda */
+    }
+    50% {
+        transform: translateX(10px); /* Mueve ligeramente a la derecha */
+    }
+    100% {
+        transform: translateX(-10px); /* Vuelve a la posición inicial */
+    }
+}
+
+/* Aplica la animación al texto "Claudio Martínez" */
+.moving-text {
+    display: inline-block;
+    animation: moveText 3s ease-in-out infinite !important;
+}
+
+
 /* Logo en el header */
 header .logo {
     font-size: 2rem;
