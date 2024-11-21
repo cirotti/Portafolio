@@ -17,16 +17,31 @@ header {
 
 /* Animación para mover el texto de "Claudio Martínez" */
 @keyframes moveText {
-    0% {
-        transform: translateX(-10px); /* Inicia ligeramente a la izquierda */
+        0% {
+            transform: translateY(30px);
+            opacity: 0;
+            filter: blur(10px);
+            letter-spacing: 5px; /* Separación inicial entre letras */
+        }
+        40% {
+            transform: translateY(0);
+            opacity: 0.6;
+            filter: blur(5px);
+            letter-spacing: 3px; /* Reducción de la separación */
+        }
+        70% {
+            transform: translateY(-10px);
+            opacity: 0.9;
+            filter: blur(2px);
+            letter-spacing: 1px; /* Reducción de la separación */
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+            filter: blur(0);
+            letter-spacing: 0px; /* Normaliza la separación */
+        }
     }
-    50% {
-        transform: translateX(10px); /* Mueve ligeramente a la derecha */
-    }
-    100% {
-        transform: translateX(-10px); /* Vuelve a la posición inicial */
-    }
-}
 
 /* Aplica la animación al texto "Claudio Martínez" */
 .moving-text {
@@ -34,56 +49,81 @@ header {
     animation: moveText 3s ease-in-out infinite !important;
 }
 
-
-/* Logo en el header */
-header .logo {
-    font-size: 2rem;
-    color: white;
-    font-weight: bold;
-}
-
-/* Hero Section */
-#hero {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-/* Logo PNG */
-.hero-logo {
-    width: 500px;  /* Ajusta este valor al tamaño deseado */
-    height: auto;  /* Mantiene la relación de aspecto */
-    margin-bottom: 20px; /* Espacio entre el logo y el título */
-    animation: logoMove 2s ease-in-out infinite;  /* Animación de movimiento */
-}
-
-/* Animación de movimiento del logo */
-@keyframes logoMove {
+/* Glitch effect */
+@keyframes glitchEffect {
     0% {
-        transform: translateY(-10px);
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+    10% {
+        transform: translateX(-10px) scale(1.1);
+        opacity: 0.8;
+    }
+    20% {
+        transform: translateX(10px) scale(1.05);
+        opacity: 1;
+    }
+    30% {
+        transform: translateX(-5px) scale(1.1);
+        opacity: 0.7;
+    }
+    40% {
+        transform: translateX(5px) scale(1);
+        opacity: 1;
     }
     50% {
-        transform: translateY(10px);
+        transform: translateX(-10px) scale(1.05);
+        opacity: 0.9;
+    }
+    60% {
+        transform: translateX(5px) scale(1.1);
+        opacity: 1;
+    }
+    70% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
     }
     100% {
-        transform: translateY(-10px);
+        transform: translateX(0) scale(1);
+        opacity: 1;
     }
 }
 
-
-#hero h2 {
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    display: inline-block;
-    overflow: hidden; /* Oculta elementos durante la animación */
+/* Logo Glitch - Efecto más avanzado */
+.hero-logo {
+    position: relative;
+    width: 500px; /* Ajusta este valor al tamaño deseado */
+    height: auto;
+    margin-bottom: 20px;
+    animation: glitchEffect 1.5s infinite;
+    z-index: 1; /* Asegura que el logo esté por encima de cualquier contenido */
 }
 
-#hero h2 span {
-    display: inline-block;
-    transform: translateY(100%);
-    animation: titleSlide 3s ease-out forwards;  /* 'forwards' para mantener el estado final */
+.hero-logo::before,
+.hero-logo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(''); /* Aquí coloca la misma ruta de tu logo */
+    background-size: cover;
+    z-index: -1;
+    animation: glitchEffect 1.5s infinite;
 }
 
-/* Animación para mover letras */
+/* Desfase en el tiempo para la animación */
+.hero-logo::before {
+    animation-delay: -0.2s;
+}
+
+.hero-logo::after {
+    animation-delay: 0.2s;
+    opacity: 0.8;
+}
+
+/* Animación para el texto del título con deslizamiento */
 @keyframes titleSlide {
     0% {
         transform: translateY(100%);
