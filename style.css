@@ -280,7 +280,7 @@ form textarea {
 }
 
 button {
-    background-color: #2196f3;
+    background-color: white;
     color: white;
     border: none;
     border-radius: 25px;
@@ -354,7 +354,7 @@ footer {
   
   /* --- Tarjeta de Proyecto --- */
   .proyecto-card {
-    background: blue;
+    background: rgba(24, 169, 236, 0.884);
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(66, 9, 224, 0.3);
     overflow: hidden;
@@ -388,7 +388,7 @@ footer {
   
   .proyecto-content h3 {
     font-size: 1.5rem;
-    color: rgba(66, 9, 224, 0.3);
+    color: white;
     margin-bottom: 10px;
     transform: translateY(20px);
     opacity: 0;
