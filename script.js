@@ -150,3 +150,20 @@ document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
   alert("Formulario enviado con éxito. ¡Gracias por contactarme!");
 });
+
+//Proyectos
+document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+  
+    document.querySelectorAll("[data-anim]").forEach((element) => {
+      observer.observe(element);
+    });
+  });
+  
