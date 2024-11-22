@@ -15,8 +15,6 @@ header {
     box-shadow: none;
 }
 
-/* Animación para mover el texto de "Claudio Martínez" */
-/* Animación premium para "CLAUDIO MARTÍNEZ" */
 /* Animación premium ajustada para texto blanco con sombra morada */
 @keyframes premiumTextReveal {
     0% {
@@ -304,15 +302,184 @@ footer {
     padding: 10px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    #hero h2 {
-        font-size: 2.5rem;
+/* Contenedor General */
+#mis-proyectos {
+    padding: 50px 20px;
+    background: linear-gradient(120deg, #512da8, #512da8);
+    color: #f3f4f6;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+  }
+  
+  .proyectos-header {
+    margin-bottom: 40px;
+  }
+  
+  .proyectos-header h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .proyectos-header h2::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background: purple;
+    position: absolute;
+    bottom: -5px;
+    left: -100%;
+    animation: slide-in-line 1s ease-out forwards;
+  }
+  
+  .proyectos-header p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    animation: fade-in 1.5s ease-in-out forwards;
+    opacity: 0;
+  }
+  
+  /* --- Grid --- */
+  .proyectos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    perspective: 1000px;
+  }
+  
+  /* --- Tarjeta de Proyecto --- */
+  .proyecto-card {
+    background: blue;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(66, 9, 224, 0.3);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 300px;
+    transform: rotateY(0);
+  }
+  
+  .proyecto-card:hover {
+    transform: rotateY(10deg) scale(1.03);
+    box-shadow: 0 10px 30px rgba(66, 9, 224, 0.3);
+  }
+  
+  .proyecto-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .proyecto-card:hover .proyecto-image img {
+    transform: scale(1.1);
+  }
+  
+  .proyecto-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .proyecto-content h3 {
+    font-size: 1.5rem;
+    color: rgba(66, 9, 224, 0.3);
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fade-up 0.8s ease-out forwards;
+  }
+  
+  .proyecto-content p {
+    color: #cbd5e1;
+    font-size: 1rem;
+    line-height: 1.5;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fade-up 1s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+  
+  /* --- Botón --- */
+  .btn-proyecto {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: white;
+    color: blue;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+  
+  .btn-proyecto:hover {
+    background: white;
+    transform: scale(1.1);
+  }
+  
+  /* --- Animaciones --- */
+  @keyframes slide-in-line {
+    0% {
+      left: -100%;
     }
-    nav {
-        flex-direction: column;
+    100% {
+      left: 0;
     }
-    form {
-        width: 100%;
+  }
+  
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
     }
-}
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* --- Efectos Hover --- */
+  [data-anim-hover="pulse"]:hover {
+    animation: pulse 0.6s ease-out;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .proyectos-header h2 {
+      font-size: 2.5rem;
+    }
+    .proyecto-content h3 {
+      font-size: 1.5rem;
+    }
+  }
+  
