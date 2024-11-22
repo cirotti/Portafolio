@@ -16,37 +16,136 @@ header {
 }
 
 /* Animación para mover el texto de "Claudio Martínez" */
-@keyframes moveText {
-        0% {
-            transform: translateY(30px);
-            opacity: 0;
-            filter: blur(10px);
-            letter-spacing: 5px; /* Separación inicial entre letras */
-        }
-        40% {
-            transform: translateY(0);
-            opacity: 0.6;
-            filter: blur(5px);
-            letter-spacing: 3px; /* Reducción de la separación */
-        }
-        70% {
-            transform: translateY(-10px);
-            opacity: 0.9;
-            filter: blur(2px);
-            letter-spacing: 1px; /* Reducción de la separación */
-        }
-        100% {
-            transform: translateY(0);
-            opacity: 1;
-            filter: blur(0);
-            letter-spacing: 0px; /* Normaliza la separación */
-        }
+/* Animación premium para "CLAUDIO MARTÍNEZ" */
+/* Animación premium ajustada para texto blanco con sombra morada */
+@keyframes premiumTextReveal {
+    0% {
+        transform: perspective(1000px) rotateX(90deg) translateY(50px) scale(0.9);
+        opacity: 0;
+        text-shadow: 0 5px 15px rgba(128, 0, 128, 0.5); /* Sombra morada inicial */
     }
+    25% {
+        transform: perspective(1000px) rotateX(45deg) translateY(10px) scale(1.1);
+        opacity: 0.5;
+        text-shadow: 0 10px 25px rgba(128, 0, 128, 0.3); /* Sombra ligera */
+    }
+    50% {
+        transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+        opacity: 1;
+        text-shadow: 0 15px 30px rgba(128, 0, 128, 0.6); /* Sombra fuerte */
+    }
+    75% {
+        transform: perspective(1000px) rotateX(-10deg) translateY(-5px) scale(1.02);
+        text-shadow: 0 5px 20px rgba(128, 0, 128, 0.4); /* Sombra intermedia */
+    }
+    100% {
+        transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+        text-shadow: 0 10px 30px rgba(128, 0, 128, 0.5); /* Sombra final */
+    }
+}
 
-/* Aplica la animación al texto "Claudio Martínez" */
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(128, 0, 128, 0.7), 0 0 20px rgba(128, 0, 128, 0.9), 0 0 30px rgba(128, 0, 128, 1);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(128, 0, 128, 0.9), 0 0 40px rgba(128, 0, 128, 1), 0 0 50px rgba(128, 0, 128, 1);
+    }
+}
+
 .moving-text {
     display: inline-block;
-    animation: moveText 3s ease-in-out infinite !important;
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #ffffff; /* Color blanco */
+    text-transform: uppercase;
+    text-align: center;
+    animation: premiumTextReveal 4s cubic-bezier(0.25, 1, 0.5, 1) infinite, glowPulse 3s ease-in-out infinite;
+    transform-origin: center;
+    filter: drop-shadow(0 10px 20px rgba(128, 0, 128, 0.5)); /* Sombra morada */
+}
+
+/* Contenedor elegante */
+.text-container {
+    position: relative;
+    display: inline-block;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.text-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(128, 0, 128, 0.5), transparent 70%);
+    animation: rotateGlow 6s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .moving-text {
+        font-size: 2.5rem; /* Reduce el tamaño en móviles */
+        letter-spacing: 1.5px; /* Ajusta el espaciado entre letras */
+    }
+
+    .text-container {
+        padding: 15px 20px; /* Reduce el espacio del contenedor */
+        border-radius: 15px; /* Ajusta los bordes redondeados */
+    }
+}
+
+
+/* Agregar un contenedor con fondo elegante */
+.text-container {
+    position: relative;
+    display: inline-block;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.text-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 200, 100, 0.5), transparent 70%);
+    animation: rotateGlow 6s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Glitch effect */
