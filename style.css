@@ -483,3 +483,67 @@ footer {
     }
   }
   
+  
+/* --------------------------- */
+/* Nuevas Animaciones y Efectos */
+/* --------------------------- */
+
+/* Nueva animación para un movimiento flotante */
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-15px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+/* Aplicando animación de rotación al logo */
+.hero-logo {
+  animation: glitchEffect 1.5s infinite, slowRotate 20s linear infinite;
+}
+
+/* Nueva animación de parpadeo */
+@keyframes blink {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+}
+
+/* Aplicando parpadeo a los encabezados */
+section h3 {
+  animation: fade-up 1s ease-out forwards, blink 3s infinite;
+}
+
+/* Nueva animación de rebote */
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+}
+
+/* Aplicando animación de rebote a los botones */
+button:hover {
+  background-color: #1976d2;
+  transform: scale(1.05) translateY(-5px);
+  animation: bounce 0.6s infinite;
+}
+
+/* Nueva animación para elementos que flotan hacia los lados */
+@keyframes sideFloat {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateX(10px);
+  }
+}
